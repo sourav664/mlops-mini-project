@@ -1,4 +1,4 @@
 [core]
     remote = myremote
 ['remote "myremote"']
-    url = C:\Users\soura\AppData\Local\Temp\emotion_detection
+    url = s3://emotion-detection-sourav
