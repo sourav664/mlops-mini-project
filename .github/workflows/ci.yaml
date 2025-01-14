@@ -50,8 +50,7 @@ jobs:
         if: success()
         env:
           DAGSHUB_PAT: ${{ secrets.DAGSHUB_PAT }}
-        run: |
-          python -m unittest tests/test_flask_app.py
+        run: python -m unittest tests/test_flask_app.py
       
       - name: Log in to Docker Hub
         if: success()
