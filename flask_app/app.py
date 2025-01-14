@@ -2,10 +2,6 @@ from flask import Flask, render_template, request
 import mlflow
 import pickle
 import os
-# from preprocessing_utility import normalize_text
-import dagshub
-
-
 import numpy as np
 import pandas as pd
 
