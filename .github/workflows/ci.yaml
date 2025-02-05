@@ -85,11 +85,8 @@ jobs:
             aws configure set aws access key id ${{ secrets.AWS_ACCESS_KEY_ID }}
             aws configure set aws secret access key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             aws configure set default.region eu-north-1
-            aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin
-            957417441966.dkr.ecr.eu-north-1.amazonaws.com
-
+            aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin 957417441966.dkr.ecr.eu-north-1.amazonaws.com
             docker pull 957417441966.dkr.ecr.eu-north-1.amazonaws.com/sourav_ecr:latest
-            docker stop my-app | | true
+            docker stop my-app || true
             docker rm my-app || true
-            docker run -d -p 80:5000 -e DAGSHUB_PAT=${ { secrets.DAGSHUB PAT }} -- name hunter-app 
-            957417441966.dkr.ecr.eu-north-1.amazonaws.com/sourav_ecr:latest
+            docker run -d -p 80:5000 -e DAGSHUB_PAT=${ { secrets.DAGSHUB PAT }} -- name hunter-app 957417441966.dkr.ecr.eu-north-1.amazonaws.com/sourav_ecr:latest
