@@ -82,10 +82,14 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/emotion2:latest
-            docker stop my-app || true
+            aws configure set aws access key id ${{ secrets.AWS ACCESS KEY ID }}
+            aws configure set aws secret access key ${{ secrets.AWS SECRET ACCESS KEY }}
+            aws configure set default.region eu-north-1
+            aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin
+            957417441966.dkr.ecr.eu-north-1.amazonaws.com
+
+            docker pull 957417441966.dkr.ecr.eu-north-1.amazonaws.com/sourav_ecr:latest
+            docker stop my-app | | true
             docker rm my-app || true
-            docker run -p 80:5000 --name my-app \
-              -e DAGSHUB_PAT=${{ secrets.DAGSHUB_PAT }} \
-              ${{ secrets.DOCKER_HUB_USERNAME }}/emotion2:latest
-          
+            docker run -d -p 80:5000 -e DAGSHUB_PAT=${ { secrets.DAGSHUB PAT }} -- name hunter-app 
+            957417441966.dkr.ecr.eu-north-1.amazonaws.com/sourav_ecr:latest
